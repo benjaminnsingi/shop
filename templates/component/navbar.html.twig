@@ -1,0 +1,57 @@
+<!-- Navigation --->
+<nav class="nav">
+    <div class="wrapper container">
+        <div class="logo"><a href="">Benshop</a></div>
+        <ul class="nav-list">
+            <div class="top">
+                <label class="btn close-btn"><i class="fas fa-times"></i></label>
+            </div>
+            <li><a href="">Accueil</a></li>
+            <li><a href="">Produits</a></li>
+            <li>
+                <a href="" class="desktop-item">Boutique <span><i class="fas fa-chevron-down"></i></span></a>
+                <input type="checkbox" id="showMega" />
+                <label for="showMega" class="mobile-item">Boutique <span><i class="fas fa-chevron-down"></i></span></label>
+                <div class="mega-box">
+                    <div class="content">
+                       <div class="row">
+                           <img src="{{ asset('images/woman.jpg') }}" alt="">
+                       </div>
+                        <div class="row">
+                            <header>Shop Layout</header>
+                            <ul class="mega-links">
+                                <li><a href="#">Shop With Background</a></li>
+                                <li><a href="#">Shop Mini Categories</a></li>
+                                <li><a href="#">Shop Only Categories</a></li>
+                                <li><a href="#">Shop Icon Categories</a></li>
+                            </ul>
+                        </div>
+                        <div class="row">
+                            <header>Filter Layout</header>
+                            <ul class="mega-links">
+                                <li><a href="#">Sidebar</a></li>
+                                <li><a href="#">Filter Default</a></li>
+                                <li><a href="#">Filter Drawer</a></li>
+                                <li><a href="#">Filter Dropdown</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li><a href="">Blog</a></li>
+            <!-- icons -->
+            <li class="icons">
+              <span>
+                <img src="{{ asset('images/shoppingBag.svg') }}" alt=""/>
+                <small class="count d-flex">0</small>
+              </span>
+            </li>
+            <li class="icons">
+              <span>
+                  <a href=""><img src="{{ asset('images/user.png') }}" alt="" height="25" width="25"/></a>
+              </span>
+            </li>
+        </ul>
+        <label for="" class="btn open-btn"><i class="fas fa-bars"></i></label>
+    </div>
+</nav>
