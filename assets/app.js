@@ -4,5 +4,4 @@ import '@fortawesome/fontawesome-free/css/all.css';
 
 
 import './js/nav';
-
-
+import './js/product'

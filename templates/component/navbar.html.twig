@@ -1,13 +1,13 @@
 <!-- Navigation --->
 <nav class="nav">
     <div class="wrapper container">
-        <div class="logo"><a href="">Benshop</a></div>
+        <div class="logo"><a href="{{ path('home') }}">Benshop</a></div>
         <ul class="nav-list">
             <div class="top">
                 <label class="btn close-btn"><i class="fas fa-times"></i></label>
             </div>
-            <li><a href="">Accueil</a></li>
-            <li><a href="">Produits</a></li>
+            <li><a href="{{ path('home') }}">Accueil</a></li>
+            <li><a href="{{ path('products') }}">Produits</a></li>
             <li>
                 <a href="" class="desktop-item">Boutique <span><i class="fas fa-chevron-down"></i></span></a>
                 <input type="checkbox" id="showMega" />
@@ -40,15 +40,17 @@
             </li>
             <li><a href="">Blog</a></li>
             <!-- icons -->
-            <li class="icons">
-              <span>
-                <img src="{{ asset('images/shoppingBag.svg') }}" alt=""/>
-                <small class="count d-flex">0</small>
-              </span>
+            <li class="icons cart-add">
+              <a href="">
+               <span>
+                    <img src="{{ asset('images/shoppingBag.svg') }}" alt=""/>
+                    <small class="count d-flex">0</small>
+                </span>
+              </a>
             </li>
             <li class="icons">
               <span>
-                  <a href=""><img src="{{ asset('images/user.png') }}" alt="" height="25" width="25"/></a>
+                  <a href="{{ path('app_login') }}"><img src="{{ asset('images/user.png') }}" alt="" height="25" width="25"/></a>
               </span>
             </li>
         </ul>
