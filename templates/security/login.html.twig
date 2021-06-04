@@ -3,12 +3,14 @@
 {% block title %}Se connecter{% endblock %}
 
 {% block content %}
-<div class="container login-form">
-    <form method="post" class="form-login">
+<div class="container login-form mt-5">
+    <div class="mt-5">
+        {{ include('component/flash_message.html.twig') }}
         {% if error %}
             <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
         {% endif %}
-
+    </div>
+    <form method="post" class="form-login">
         <h1 class="h3 mb-3 font-weight-normal">S'identifier</h1>
        <div class="form-row">
            <label for="inputEmail">Email</label>
@@ -33,10 +35,13 @@
             </label>
         </div>
         #}
-        <a href="{{ path('app_forgot_password_request') }}">Mot de passe oublié</a>
+       <div>
+           <a href="{{ path('app_forgot_password_request') }}">Mot de passe oublié</a>
+       </div>
         <button class="btn-primary-info" type="submit">
             Se connecter
         </button>
+        <p>Nouveau?<a href="{{ path('app_register') }}" style="color: dodgerblue">Inscrivez-vous</a></p>
     </form>
 </div>
 <div style="padding-top: 120px;"></div>

@@ -3,23 +3,41 @@
 {% block title %}Register{% endblock %}
 
 {% block content %}
-   <div class="container mt-5">
-       {% for flashError in app.flashes('verify_email_error') %}
-           <div class="alert alert-danger" role="alert">{{ flashError }}</div>
-       {% endfor %}
-
-       <h1>Register</h1>
-
-       {{ form_start(registrationForm) }}
-       {{ form_row(registrationForm.email) }}
-       {{ form_row(registrationForm.firstname) }}
-       {{ form_row(registrationForm.lastname) }}
-       {{ form_row(registrationForm.plainPassword, {
-           label: 'Password'
-       }) }}
-       {{ form_row(registrationForm.agreeTerms) }}
-
-       <button type="submit" class="btn">Register</button>
-       {{ form_end(registrationForm) }}
-   </div>
+    <div class="container login-form mt-5">
+        <div class="mt-5">
+            {{ include('component/flash_message.html.twig') }}
+        </div>
+        {% for flashError in app.flashes('verify_email_error') %}
+            <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+        {% endfor %}
+        <div class="form-login">
+            {{ form_start(registrationForm) }}
+            <h1 class="h3 mb-3 font-weight-normal">S'inscrire</h1>
+            <div class="form-row">
+                <label for="inputEmail">Email</label>
+                {{ form_row(registrationForm.email) }}
+            </div>
+            <div class="form-row">
+                <label for="inputFirstname">Prénom</label>
+                {{ form_row(registrationForm.firstname) }}
+            </div>
+            <div class="form-row">
+                <label for="inputLastname">Nom</label>
+                {{ form_row(registrationForm.lastname) }}
+            </div>
+            <div class="form-row">
+                <label for="inputPassword">Mot de passe</label>
+                {{ form_row(registrationForm.plainPassword) }}
+            </div>
+            <div class="form-row">
+                {{ form_row(registrationForm.agreeTerms) }}
+            </div>
+            <button class="btn-primary-info" type="submit">
+                S'inscrire
+            </button>
+            <p><a href="{{ path('app_login') }}" style="color: dodgerblue">Se connecter</a></p>
+            {{ form_end(registrationForm) }}
+        </div>
+    </div>
+    <div style="padding-top: 120px;"></div>
 {% endblock %}

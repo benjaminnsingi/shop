@@ -5,7 +5,7 @@ let count = 0;
 
 // if add to cart btn clicked
 
-$('.addCart').on('click', () => {
+$('.addCart').on('click', (e) => {
 
     setTimeout(function(){
         count++;

@@ -4,6 +4,9 @@
 
 {% block content %}
 <div class="container login-form">
+    <div class="mt-5">
+        {{ include('component/flash_message.html.twig') }}
+    </div>
     {% for flashError in app.flashes('reset_password_error') %}
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}

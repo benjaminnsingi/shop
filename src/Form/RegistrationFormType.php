@@ -5,7 +5,9 @@ namespace App\Form;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\IsTrue;
@@ -17,10 +19,17 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('email')
-            ->add('firstname')
-            ->add('lastname')
+            ->add('email', EmailType::class,[
+                'label' => false
+            ])
+            ->add('firstname',TextType::class,[
+                'label' => false
+            ])
+            ->add('lastname',TextType::class,[
+                'label' => false
+            ])
             ->add('agreeTerms', CheckboxType::class, [
+                'label' => 'accepter les conditions',
                 'mapped' => false,
                 'constraints' => [
                     new IsTrue([
@@ -33,6 +42,7 @@ class RegistrationFormType extends AbstractType
                 // this is read and encoded in the controller
                 'mapped' => false,
                 'attr' => ['autocomplete' => 'new-password'],
+                'label' => false,
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Please enter a password',

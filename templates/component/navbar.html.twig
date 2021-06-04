@@ -1,5 +1,5 @@
 <!-- Navigation --->
-<nav class="nav">
+<nav class="nav" xmlns="http://www.w3.org/1999/html">
     <div class="wrapper container">
         <div class="logo"><a href="{{ path('home') }}">Benshop</a></div>
         <ul class="nav-list">
@@ -41,17 +41,15 @@
             <li><a href="">Blog</a></li>
             <!-- icons -->
             <li class="icons cart-add">
-              <a href="">
-               <span>
-                    <img src="{{ asset('images/shoppingBag.svg') }}" alt=""/>
-                    <small class="count d-flex">0</small>
-                </span>
-              </a>
-            </li>
-            <li class="icons">
               <span>
-                  <a href="{{ path('app_login') }}"><img src="{{ asset('images/user.png') }}" alt="" height="25" width="25"/></a>
+                   <a href="">
+                        <img src="{{ asset('images/shoppingBag.svg') }}" alt=""/>
+                    </a>
+                  <small class="count d-flex">0</small>
               </span>
+                <span>
+                    <a href="{{ path('app_login') }}"><img src="{{ asset('images/user.png') }}" alt="" height="25" width="25"/></a>
+                </span>
             </li>
         </ul>
         <label for="" class="btn open-btn"><i class="fas fa-bars"></i></label>
