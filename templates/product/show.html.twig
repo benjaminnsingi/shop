@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ product.name }}{% endblock %}
+
+{% block content %}
+    <!-- Product Details -->
+    <section class="section product-detail">
+        <div class="details container">
+            <div class="left">
+                <div class="main">
+                    <img src="/uploads/{{ product.image }}" alt="{{ product.name }}">
+                </div>
+            </div>
+            <div class="right">
+                <span><a href="{{ path('products') }}" style="color: dodgerblue">Produits</a>/T-shirt</span>
+                <h1>{{ product.name }}</h1>
+                <div class="price">{{ (product.price / 100) |number_format(2) }} €</div>
+                <form>
+                    <div>
+                        <select>
+                            <option value="Select Size" selected disabled>
+                                Select Size
+                            </option>
+                            <option value="1">32</option>
+                            <option value="2">42</option>
+                            <option value="3">52</option>
+                            <option value="4">62</option>
+                        </select>
+                        <span><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                </form>
+
+                <form class="form">
+                    <input type="text" placeholder="1" />
+                    <a href="cart.html" class="addCart">Ajouter au panier</a>
+                </form>
+                <h3>{{ product.subtitle }}</h3>
+                <p>{{ product.description }}</p>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -4,4 +4,4 @@ import '@fortawesome/fontawesome-free/css/all.css';
 //import 'bootstrap/dist/css/bootstrap.css';
 
 import './js/nav';
-import './js/product'
+//import './js/product'

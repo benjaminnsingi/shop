@@ -1,0 +1,122 @@
+/* ADVERTS */
+.advert {
+
+  .advert-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+
+    .item {
+      position: relative;
+      z-index: 0;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+      transition: all 300ms ease-in-out;
+    }
+
+    .content {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1;
+    }
+  }
+
+}
+
+.advert-layout {
+
+  .left {
+    right: 10%;
+  }
+
+  .right {
+    left: 10%;
+  }
+
+  .content span {
+    display: block;
+    margin-bottom: 1rem;
+    transition: all 300ms ease-in-out;
+  }
+
+  .content h3 {
+    font-size: 3rem;
+    font-weight: inherit;
+    margin-bottom: 1rem;
+    transition: all 300ms ease-in-out;
+  }
+
+  .content a {
+    transition: all 300ms ease-in-out;
+  }
+
+  .content a:hover {
+    color: var(--primary);
+  }
+
+  .item::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: all 300ms ease-in-out;
+  }
+
+  .item:hover::after {
+    background-color: rgba(223, 74, 74, 0.4);
+  }
+
+  .item:hover .content {
+    color: var(--white);
+  }
+
+  .item:hover .content a {
+    color: var(--white);
+  }
+
+  .item:hover img {
+    transform: scale(1.1);
+  }
+
+}
+
+@media only screen and (max-width: 996px) {
+  .advert-layout .left {
+    right: 5%;
+  }
+
+  .advert-layout .right {
+    left: 5%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .advert .advert-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media only screen and (max-width: 567px) {
+  .advert-layout .content span {
+    font-size: 1.5rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .advert-layout .content h3 {
+    font-size: 2rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .advert-layout .content a {
+    transition: all 300ms ease-in-out;
+  }
+}

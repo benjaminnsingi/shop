@@ -1,0 +1,110 @@
+/* Hero */
+.hero {
+  height: calc(100vh - 6.5rem);
+  background-color: var(--primary);
+  position: relative;
+  overflow: hidden;
+
+  .right {
+    position: absolute;
+    right: -7%;
+    bottom: -1%;
+  }
+
+  .right img {
+    max-width: 80rem;
+    width: 100%;
+    height: 60rem;
+  }
+
+  .left {
+    color: var(--white);
+    position: absolute;
+    left: 7%;
+    top: 40%;
+  }
+
+  .left span {
+    display: inline-block;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .left h1 {
+    font-size: 4.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .left small {
+    display: block;
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .left a {
+    display: inline-block;
+    color: var(--white);
+    font-weight: 700;
+    border: 2px solid var(--white);
+    padding: 0.7rem 1.5rem;
+    margin-top: 1rem;
+    transition: all 300ms ease-out;
+  }
+
+  .left a:hover {
+    color: var(--primary);
+    background-color: var(--white);
+  }
+
+}
+
+@media only screen and (max-width: 1200px) {
+  .hero .right img {
+    height: 50rem;
+  }
+
+  .hero .left span {
+    font-size: 1.7rem;
+  }
+
+  .hero .left h1 {
+    font-size: 3.5rem;
+  }
+}
+
+@media only screen and (max-width: 996px) {
+  .hero .left {
+    top: 30%;
+  }
+
+  .hero .right img {
+    height: 35rem;
+  }
+
+  .hero .right {
+    right: -10%;
+  }
+}
+
+@media only screen and (max-width: 567px) {
+  .hero .left {
+    top: 25%;
+  }
+
+  .hero .right img {
+    height: 30rem;
+  }
+
+  .hero .right {
+    right: -18%;
+  }
+
+  .hero .left span {
+    font-size: 1.6rem;
+  }
+
+  .hero .left h1 {
+    font-size: 3rem;
+  }
+}

@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes adresses - Benshop{% endblock %}
+
+{% block content %}
+    <div class="container" style="padding-top: 120px">
+        <div class="mt-5">
+            {{ include('component/flash_message.html.twig') }}
+        </div>
+        <h1>Mes adresses</h1>
+        C'est dans cet espace que vous aller pouvoir gérer toutes vos adresses.<br/><br/>
+        <a href="{{ path('app_account') }}" style="color: #007bff">Retour</a>
+        <a href="{{ path('account_address_create') }}" class=" btn-address">Ajouter une adresse</a>
+        <br/><br/>
+        <hr>
+        {%  if app.user.addresses|length == 0 %}
+            <p class="text-center">Vous n'avez pas encore ajouté d'adresse dans votre compte client. Pour en ajouter une, veuillez <a href="{{ path('account_address_create') }}" style="color: #007bff">Cliquer ici</a> </p>
+        {% else %}
+            <div class="row">
+                {% for address in app.user.addresses %}
+                    <div class="col-md-4">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <h3 class="card-title">{{ address.name }}</h3>
+                                <p class="card-text">
+                                    {{ address.address }}<br/>
+                                    {{ address.postal }} - {{ address.city }} - {{ address.country }}
+                                </p>
+                                <br>
+                                <a href="{{ path('account_address_edit', { 'id': address.id }) }}" class=" btn-address">Modifier</a> | <a href="{{ path('account_address_delete', { 'id': address.id }) }}" class="btn btn-address-danger">Supprimer</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+    <div style="padding-top: 530px;"></div>
+{% endblock %}

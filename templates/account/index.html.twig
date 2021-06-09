@@ -3,10 +3,33 @@
 {% block title %}Mon compte{% endblock %}
 
 {% block content %}
-<div class="container mt-5">
+<div class="container" style="padding-top: 100px;">
     <div class="mt-5">
         {{ include('component/flash_message.html.twig') }}
     </div>
-    <h1>Hello mon compte</h1>
+    {% if is_granted('ROLE_ADMIN') %}
+        <small><a href="{{ path('admin') }}" style="color: cornflowerblue">Vous êtes administrateur, accèder au backoffice</a></small><br/>
+    {% endif %}
+    <h1>Mon compte</h1>
+    Bienvenue {{ app.user.firstname }} dans votre compte.<br> C'est dans cet espace que vous aller pouvoir gérer toutes vos informations personnelles.
+    <hr>
+    <div class="row-account">
+        <div class="col-md-4">
+            <div class="account-item text-center">
+                <a href="{{ path('account_password') }}">Modifier mon mot de passe</a><br/>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="account-item text-center">
+                <a href="{{ path('account_address') }}">Gérer mes adresses</a><br/>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="account-item text-center">
+                <a href="">Mes commandes</a><br/>
+            </div>
+        </div>
+    </div>
 </div>
+<div style="padding-top: 530px;"></div>
 {% endblock %}

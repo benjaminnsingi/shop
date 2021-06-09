@@ -38,18 +38,26 @@
                     </div>
                 </div>
             </li>
-            <li><a href="">Blog</a></li>
+            {% if app.user %}
+            <li><a href="{{ path('app_account') }}">Mon compte</a></li>
+            {% endif %}
             <!-- icons -->
             <li class="icons cart-add">
               <span>
-                   <a href="">
+                   <a href="{{ path('cart') }}">
                         <img src="{{ asset('images/shoppingBag.svg') }}" alt=""/>
                     </a>
                   <small class="count d-flex">0</small>
               </span>
+                {% if app.user %}
+                <span>
+                    <a href="{{ path('app_logout') }}"><img src="{{ asset('images/log-out.png') }}" alt="" height="25" width="25"/></a>
+                </span>
+                {% else %}
                 <span>
                     <a href="{{ path('app_login') }}"><img src="{{ asset('images/user.png') }}" alt="" height="25" width="25"/></a>
                 </span>
+                {% endif %}
             </li>
         </ul>
         <label for="" class="btn open-btn"><i class="fas fa-bars"></i></label>

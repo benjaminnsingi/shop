@@ -1,0 +1,27 @@
+.row-account {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.row-account div{
+   margin: 10px;
+}
+
+
+.account-item {
+  background-color: #dfe4ea;
+  padding: 70px;
+}
+
+.account-item  a{
+  text-transform: uppercase;
+  font-size: 13px;
+  color: #4b6584;
+  font-weight: bold;
+}
+
+
+.account-item  a:hover{
+  color: #778ca3;
+  text-decoration: none;
+}
