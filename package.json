@@ -1,5 +1,6 @@
 {
     "devDependencies": {
+        "@stripe/stripe-js": "^1.15.0",
         "@symfony/stimulus-bridge": "^2.0.0",
         "@symfony/webpack-encore": "^1.0.0",
         "core-js": "^3.0.0",
@@ -26,6 +27,7 @@
         "autoprefixer": "^10.2.6",
         "bootstrap": "^5.0.1",
         "boxicons": "^2.0.7",
-        "postcss-loader": "^5.3.0"
+        "postcss-loader": "^5.3.0",
+        "stripe": "^8.154.0"
     }
 }

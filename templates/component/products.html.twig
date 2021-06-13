@@ -6,10 +6,13 @@
     </div>
 
     <div class="product-layout">
+        {% for product in products %}
         <div class="product">
             <div class="img-container">
-                <img src="{{ asset('images/product1.jpg') }}" alt="" />
-                <a class="addCart">
+                <a href="{{ path('products') }}">
+                    <img src="/uploads/{{ product.image }}" alt="{{ product.name }}" height="200px"/>
+                </a>
+                <a href="{{ path('add_to_cart', {'id' : product.id}) }}" class="addCart">
                     <i class="fas fa-shopping-cart"></i>
                 </a>
 
@@ -20,164 +23,12 @@
                 </ul>
             </div>
             <div class="bottom">
-                <a href="">Bambi Print Mini Backpack</a>
+                <a href="">{{ product.name }}</a>
                 <div class="price">
-                    <span>$150</span>
+                    <span>{{ (product.price / 100) |number_format(2) }} €</span>
                 </div>
             </div>
         </div>
-
-        <div class="product">
-            <div class="img-container">
-                <img src="{{ asset('images/product2.jpg') }}" alt="" />
-                <a class="addCart">
-                    <i class="fas fa-shopping-cart"></i>
-                </a>
-
-                <ul class="side-icons">
-                    <span><i class="fas fa-search"></i></span>
-                    <span><i class="far fa-heart"></i></span>
-                    <span><i class="fas fa-sliders-h"></i></span>
-                </ul>
-            </div>
-            <div class="bottom">
-                <a href="">Bambi Print Mini Backpack</a>
-                <div class="price">
-                    <span>$150</span>
-                    <span class="cancel">$160</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="product">
-            <div class="img-container">
-                <img src="{{ asset('images/product3.jpg') }}" alt="" />
-                <a class="addCart">
-                    <i class="fas fa-shopping-cart"></i>
-                </a>
-
-                <ul class="side-icons">
-                    <span><i class="fas fa-search"></i></span>
-                    <span><i class="far fa-heart"></i></span>
-                    <span><i class="fas fa-sliders-h"></i></span>
-                </ul>
-            </div>
-            <div class="bottom">
-                <a href="">Bambi Print Mini Backpack</a>
-                <div class="price">
-                    <span>$150</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="product">
-            <div class="img-container">
-                <img src="{{ asset('images/product4.jpg') }}" alt="" />
-                <a class="addCart">
-                    <i class="fas fa-shopping-cart"></i>
-                </a>
-
-                <ul class="side-icons">
-                    <span><i class="fas fa-search"></i></span>
-                    <span><i class="far fa-heart"></i></span>
-                    <span><i class="fas fa-sliders-h"></i></span>
-                </ul>
-            </div>
-            <div class="bottom">
-                <a href="">Bambi Print Mini Backpack</a>
-                <div class="price">
-                    <span>$150</span>
-                    <span class="cancel">$160</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="product">
-            <div class="img-container">
-                <img src="{{ asset('images/product5.jpg') }}" alt="" />
-                <a class="addCart">
-                    <i class="fas fa-shopping-cart"></i>
-                </a>
-
-                <ul class="side-icons">
-                    <span><i class="fas fa-search"></i></span>
-                    <span><i class="far fa-heart"></i></span>
-                    <span><i class="fas fa-sliders-h"></i></span>
-                </ul>
-            </div>
-            <div class="bottom">
-                <a href="">Bambi Print Mini Backpack</a>
-                <div class="price">
-                    <span>$150</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="product">
-            <div class="img-container">
-                <img src="{{ asset('images/product6.jpg') }}" alt="" />
-                <a class="addCart">
-                    <i class="fas fa-shopping-cart"></i>
-                </a>
-
-                <ul class="side-icons">
-                    <span><i class="fas fa-search"></i></span>
-                    <span><i class="far fa-heart"></i></span>
-                    <span><i class="fas fa-sliders-h"></i></span>
-                </ul>
-            </div>
-            <div class="bottom">
-                <a href="">Bambi Print Mini Backpack</a>
-
-                <div class="price">
-                    <span>$150</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="product">
-            <div class="img-container">
-                <img src="{{ asset('images/product7.jpg') }}" alt="" />
-                <a class="addCart">
-                    <i class="fas fa-shopping-cart"></i>
-                </a>
-
-                <ul class="side-icons">
-                    <span><i class="fas fa-search"></i></span>
-                    <span><i class="far fa-heart"></i></span>
-                    <span><i class="fas fa-sliders-h"></i></span>
-                </ul>
-            </div>
-            <div class="bottom">
-                <a href="">Bambi Print Mini Backpack</a>
-
-                <div class="price">
-                    <span>$150</span>
-                    <span class="cancel">$160</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="product">
-            <div class="img-container">
-                <img src="{{ asset('images/product8.jpg') }}" alt="" />
-                <a class="addCart">
-                    <i class="fas fa-shopping-cart"></i>
-                </a>
-
-                <ul class="side-icons">
-                    <span><i class="fas fa-search"></i></span>
-                    <span><i class="far fa-heart"></i></span>
-                    <span><i class="fas fa-sliders-h"></i></span>
-                </ul>
-            </div>
-            <div class="bottom">
-                <a href="">Bambi Print Mini Backpack</a>
-                <div class="price">
-                    <span>$150</span>
-                    <span class="cancel">$160</span>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 </section>

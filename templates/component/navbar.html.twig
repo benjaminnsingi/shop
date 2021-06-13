@@ -9,34 +9,7 @@
             <li><a href="{{ path('home') }}">Accueil</a></li>
             <li><a href="{{ path('products') }}">Produits</a></li>
             <li>
-                <a href="" class="desktop-item">Boutique <span><i class="fas fa-chevron-down"></i></span></a>
-                <input type="checkbox" id="showMega" />
-                <label for="showMega" class="mobile-item">Boutique <span><i class="fas fa-chevron-down"></i></span></label>
-                <div class="mega-box">
-                    <div class="content">
-                       <div class="row">
-                           <img src="{{ asset('images/woman.jpg') }}" alt="">
-                       </div>
-                        <div class="row">
-                            <header>Shop Layout</header>
-                            <ul class="mega-links">
-                                <li><a href="#">Shop With Background</a></li>
-                                <li><a href="#">Shop Mini Categories</a></li>
-                                <li><a href="#">Shop Only Categories</a></li>
-                                <li><a href="#">Shop Icon Categories</a></li>
-                            </ul>
-                        </div>
-                        <div class="row">
-                            <header>Filter Layout</header>
-                            <ul class="mega-links">
-                                <li><a href="#">Sidebar</a></li>
-                                <li><a href="#">Filter Default</a></li>
-                                <li><a href="#">Filter Drawer</a></li>
-                                <li><a href="#">Filter Dropdown</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                <a href="" class="desktop-item">Contact</a>
             </li>
             {% if app.user %}
             <li><a href="{{ path('app_account') }}">Mon compte</a></li>

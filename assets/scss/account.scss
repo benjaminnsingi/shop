@@ -1,3 +1,13 @@
+.row-order {
+  display: flex;
+  padding-top: 60px;
+  flex-wrap: wrap;
+}
+
+.row-order div{
+  margin: 10px;
+}
+
 .row-account {
   display: flex;
   flex-wrap: wrap;

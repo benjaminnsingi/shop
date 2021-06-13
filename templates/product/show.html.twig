@@ -15,28 +15,44 @@
                 <span><a href="{{ path('products') }}" style="color: dodgerblue">Produits</a>/T-shirt</span>
                 <h1>{{ product.name }}</h1>
                 <div class="price">{{ (product.price / 100) |number_format(2) }} €</div>
-                <form>
-                    <div>
-                        <select>
-                            <option value="Select Size" selected disabled>
-                                Select Size
-                            </option>
-                            <option value="1">32</option>
-                            <option value="2">42</option>
-                            <option value="3">52</option>
-                            <option value="4">62</option>
-                        </select>
-                        <span><i class="fas fa-chevron-down"></i></span>
-                    </div>
-                </form>
 
-                <form class="form">
-                    <input type="text" placeholder="1" />
-                    <a href="cart.html" class="addCart">Ajouter au panier</a>
-                </form>
+                <div class="form">
+                    <a href="{{ path('add_to_cart', {'id' : product.id}) }}" class="addCart">Ajouter au panier</a>
+                </div>
                 <h3>{{ product.subtitle }}</h3>
                 <p>{{ product.description }}</p>
             </div>
+        </div>
+        <hr>
+       <div class="container">
+           <h3>Nos meilleures ventes</h3>
+           <p>Découvrez les articles les plus vendus</p>
+       </div>
+        <div class="product-layout">
+            {% for product in products %}
+                <div class="product">
+                    <div class="img-container">
+                        <a href="{{ path('products') }}">
+                            <img src="/uploads/{{ product.image }}" alt="{{ product.name }}" height="200px"/>
+                        </a>
+                        <a href="{{ path('add_to_cart', {'id' : product.id}) }}" class="addCart">
+                            <i class="fas fa-shopping-cart"></i>
+                        </a>
+
+                        <ul class="side-icons">
+                            <span><i class="fas fa-search"></i></span>
+                            <span><i class="far fa-heart"></i></span>
+                            <span><i class="fas fa-sliders-h"></i></span>
+                        </ul>
+                    </div>
+                    <div class="bottom">
+                        <a href="">{{ product.name }}</a>
+                        <div class="price">
+                            <span>{{ (product.price / 100) |number_format(2) }} €</span>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
     </section>
 {% endblock %}
