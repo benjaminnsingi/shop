@@ -15,9 +15,11 @@
                 <span><a href="{{ path('products') }}" style="color: dodgerblue">Produits</a>/T-shirt</span>
                 <h1>{{ product.name }}</h1>
                 <div class="price">{{ (product.price / 100) |number_format(2) }} €</div>
-
+                <br><br>
                 <div class="form">
-                    <a href="{{ path('add_to_cart', {'id' : product.id}) }}" class="addCart">Ajouter au panier</a>
+                    <a href="{{ path('add_to_cart', {'id' : product.id}) }}" class="addCart">
+                        Ajouter au panier
+                    </a>
                 </div>
                 <h3>{{ product.subtitle }}</h3>
                 <p>{{ product.description }}</p>

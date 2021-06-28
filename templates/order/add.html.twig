@@ -63,7 +63,7 @@
 
 {% block javascripts %}
     <script type="text/javascript">
-        var stripe = Stripe("YOUR_KEY");
+        var stripe = Stripe("Your-key");
         var checkoutButton = document.getElementById("checkout-button");
         checkoutButton.addEventListener("click", function () {
             fetch("/order/create-session/{{ reference }}", {

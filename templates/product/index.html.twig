@@ -4,33 +4,25 @@
 
 {% block content %}
     <!-- Products -->
-    <section class="section products">
+    <section class="section products js-filter">
         <div class="products-layout container">
             <div class="content-form">
                 <div>
                     <div class="">
                         <h3>Categories</h3>
                     </div>
-                    {{ form_start(form) }}
-                    {{ form_widget(form.string) }}
-                    {{ form_widget(form.categories) }}
-                    <button class="btn-primary-info" type="submit">
-                      Filtrer
-                    </button>
-                    {{ form_end(form) }}
+                    {% include 'product/_filter.html.twig' %}
                 </div>
             </div>
 
             <div class="col-3-of-4">
-                <div class="product-layout">
-                    {% for product in products %}
-                        {% include 'product/single_product.html.twig' %}
-                    {% endfor %}
+                <div class="product-layout js-filter-content">
+                    {% include 'product/_single_product.html.twig' %}
                 </div>
             </div>
             <!-- PAGINATION -->
-            <ul class="pagination">
-                {# {{ knp_pagination_render(products) }}  #}
+            <ul class="pagination js-filter-pagination">
+                {{ knp_pagination_render(products) }}
             </ul>
         </div>
     </section>

@@ -7,6 +7,7 @@ use App\Entity\Category;
 use App\Entity\Header;
 use App\Entity\Order;
 use App\Entity\Product;
+use App\Entity\Size;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;

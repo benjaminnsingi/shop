@@ -18,7 +18,7 @@ class StripeController extends AbstractController
     public function index(EntityManagerInterface $entityManager, $reference): Response
     {
         $products_for_stripe = [];
-        $YOUR_DOMAIN = 'http://127.0.0.1:8000';
+        $YOUR_DOMAIN = 'http://127.0.0.1:8001';
 
         $order = $entityManager->getRepository(Order::class)->findOneByReference($reference);
 
@@ -27,7 +27,7 @@ class StripeController extends AbstractController
         }
 
         // Initialize stripe
-        Stripe::setApiKey('YOUR_KEY');
+        Stripe::setApiKey('sk_test_51ImKAzL6YR4P9Qcu9xYvCJqtg8Y4AjtgIHqL117Mw5VbQZp4let6ZiTInnC3NruA5HYIRcEm9yAIpOTHlFfiIVZZ00j3hiuwNG');
 
         foreach ($order->getOrderDetails()->getValues() as $product) {
             $product_object = $entityManager->getRepository(Product::class)->findOneByName($product->getProduct());

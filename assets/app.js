@@ -4,4 +4,6 @@ import '@fortawesome/fontawesome-free/css/all.css';
 //import 'bootstrap/dist/css/bootstrap.css';
 
 import './js/nav';
-//import './js/product'
+import Filter from './js/modules/Filter';
+
+new Filter(document.querySelector('.js-filter'));

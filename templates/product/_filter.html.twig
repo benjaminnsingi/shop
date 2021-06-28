@@ -1,0 +1,7 @@
+{{ form_start(form, {attr: {class: 'filter js-filter-form'}}) }}
+                    {{ form_widget(form.string) }}
+                    {{ form_widget(form.categories) }}
+<button class="btn-primary-info" type="submit">
+    Filtrer
+</button>
+{{ form_end(form) }}

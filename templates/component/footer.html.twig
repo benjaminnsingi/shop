@@ -4,7 +4,7 @@
         <div class="footer-container">
             <div class="footer-center">
                 <h3>EXTRAS</h3>
-                <a href="#">Produits</a>
+                <a href="{{ path('products') }}">Produits</a>
             </div>
             <div class="footer-center">
                 <h3>INFORMATION</h3>
@@ -13,11 +13,12 @@
                 <a href="#">Termes et conditions</a>
                 <a href="#">Contactez nous</a>
             </div>
+            {% if app.user %}
             <div class="footer-center">
                 <h3>MON COMPTE</h3>
-                <a href="#">Mon compte</a>
-                <a href="#">Historique de la commande</a>
+                <a href="{{ path('app_account') }}">Mon compte</a>
             </div>
+            {% endif %}
             <div class="footer-center">
                 <h3>CONTACTEZ-NOUS</h3>
                 <div>

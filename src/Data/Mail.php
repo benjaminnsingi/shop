@@ -9,8 +9,8 @@ use Mailjet\Resources;
 
 class Mail
 {
-    private string $api_key = 'YOUR_KEY';
-    private string $api_key_secret = 'YOUR_KEY';
+    private string $api_key = 'Your-Key';
+    private string $api_key_secret = 'Your-key';
 
     public function send($to_email, $to_name, $subject, $content)
     {
@@ -20,7 +20,7 @@ class Mail
             'Messages' => [
                 [
                     'From' => [
-                        'Email' => "",
+                        'Email' => "mailer@ben-shop.com",
                         'Name' => "La Boutique Benshop"
                     ],
                     'To' => [

@@ -7,9 +7,11 @@ namespace App\Controller;
 use App\Data\Search;
 use App\Entity\Product;
 use App\Form\SearchType;
+use App\Repository\ProductRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -24,22 +26,21 @@ class ProductController extends AbstractController
      }
 
      #[Route('/products', name: 'products')]
-     public function index(Request $request, PaginatorInterface $paginator): Response
+     public function index(ProductRepository $repository, Request $request): Response
      {
          $search = new Search();
+         $search->page = $request->get('page', 1);
          $form = $this->createForm(SearchType::class, $search);
 
          $form->handleRequest($request);
+         $products = $repository->findWithSearch($search);
 
-         if ($form->isSubmitted() && $form->isValid()) {
-             $products = $this->entityManager->getRepository(Product::class)->findWithSearch($search);
-         } else {
-             $pages = $this->entityManager->getRepository(Product::class)->findAll();
-             $products = $paginator->paginate(
-                 $pages,
-                 $request->query->getInt('page', 1),
-                 10
-             );
+         if ($request->get('ajax')) {
+             return new JsonResponse([
+                 'content' => $this->renderView('product/_single_product.html.twig', ['products' => $products]),
+                 'pagination' => $this->renderView('product/_pagination.html.twig', ['products' => $products]),
+                 'pages' => ceil($products->getTotalItemCount() / $products->getItemNumberPerPage()),
+             ]);
          }
 
          return $this->render('product/index.html.twig', [

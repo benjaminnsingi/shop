@@ -1,22 +1,24 @@
-<div class="product">
-    <div class="img-container">
-        <a href="{{ path('product', { 'slug' : product.slug }) }}">
-            <img src="/uploads/{{ product.image }}" alt="{{ product.name }}">
-        </a>
-        <a href="{{ path('add_to_cart', {'id' : product.id}) }}" class="addCart">
-            <i class="fas fa-shopping-cart"></i>
-        </a>
+{% for product in products %}
+    <div class="product">
+        <div class="img-container">
+            <a href="{{ path('product', { 'slug' : product.slug }) }}">
+                <img src="/uploads/{{ product.image }}" alt="{{ product.name }}">
+            </a>
+            <a href="{{ path('add_to_cart', {'id' : product.id}) }}" class="addCart">
+                <i class="fas fa-shopping-cart"></i>
+            </a>
 
-        <ul class="side-icons">
-            <span><i class="fas fa-search"></i></span>
-            <span><i class="far fa-heart"></i></span>
-            <span><i class="fas fa-sliders-h"></i></span>
-        </ul>
-    </div>
-    <div class="bottom">
-        <a href="">{{ product.name }}</a>
-        <div class="price">
-            <span>{{ (product.price / 100) |number_format(2) }} €</span>
+            <ul class="side-icons">
+                <span><i class="fas fa-search"></i></span>
+                <span><i class="far fa-heart"></i></span>
+                <span><i class="fas fa-sliders-h"></i></span>
+            </ul>
+        </div>
+        <div class="bottom">
+            <a href="">{{ product.name }}</a>
+            <div class="price">
+                <span>{{ (product.price / 100) |number_format(2) }} €</span>
+            </div>
         </div>
     </div>
-</div>
+{% endfor %}

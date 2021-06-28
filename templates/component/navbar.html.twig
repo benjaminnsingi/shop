@@ -8,9 +8,6 @@
             </div>
             <li><a href="{{ path('home') }}">Accueil</a></li>
             <li><a href="{{ path('products') }}">Produits</a></li>
-            <li>
-                <a href="" class="desktop-item">Contact</a>
-            </li>
             {% if app.user %}
             <li><a href="{{ path('app_account') }}">Mon compte</a></li>
             {% endif %}
@@ -20,7 +17,7 @@
                    <a href="{{ path('cart') }}">
                         <img src="{{ asset('images/shoppingBag.svg') }}" alt=""/>
                     </a>
-                  <small class="count d-flex">0</small>
+                  <!--<small class="count d-flex">0</small>-->
               </span>
                 {% if app.user %}
                 <span>

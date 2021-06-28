@@ -6,6 +6,8 @@ use App\Data\Search;
 use App\Entity\Product;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Knp\Component\Pager\Pagination\PaginationInterface;
+use Knp\Component\Pager\PaginatorInterface;
 
 /**
  * @method Product|null find($id, $lockMode = null, $lockVersion = null)
@@ -15,17 +17,21 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class ProductRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
+
+    private PaginatorInterface $paginator;
+
+    public function __construct(ManagerRegistry $registry, PaginatorInterface $paginator)
     {
         parent::__construct($registry, Product::class);
+        $this->paginator = $paginator;
     }
 
     /**
      * Query that allows me to retrieve products based on the user's search
      * @param Search $search
-     * @return int|mixed|string
+     * @return PaginationInterface
      */
-    public function findWithSearch(Search $search)
+    public function findWithSearch(Search $search): PaginationInterface
     {
         $query = $this
             ->createQueryBuilder('p')
@@ -52,7 +58,13 @@ class ProductRepository extends ServiceEntityRepository
                 ->setParameter('string', "%{$search->string}%");
         }
 
-        return $query->getQuery()->getResult();
+        $query->getQuery()->getResult();
+
+        return $this->paginator->paginate(
+            $query,
+            $search->page,
+            10
+        );
     }
 
     // /**
