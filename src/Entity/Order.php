@@ -6,7 +6,6 @@ use App\Repository\OrderRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use JetBrains\PhpStorm\Pure;
 
 /**
  * @ORM\Entity(repositoryClass=OrderRepository::class)
@@ -66,7 +65,7 @@ class Order
      */
     private \DateTimeInterface $createdAt;
 
-    #[Pure] public function __construct()
+    public function __construct()
     {
         $this->orderDetails = new ArrayCollection();
     }

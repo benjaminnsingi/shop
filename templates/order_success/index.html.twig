@@ -3,7 +3,7 @@
 {% block title %}Confirmation de commande - La Boutique Française{% endblock %}
 
 {% block content %}
-    <div class="container" style="padding-top: 140px;">
+    <div class="container" style="padding-top: 240px;">
         <h2>Confirmation de commande</h2>
         <p>
             Bonjour <strong>{{ order.user.firstname }} {{ order.user.lastname }}</strong>,<br/><br/>
@@ -16,5 +16,5 @@
         Pour suivre votre commande, rendez-vous dans votre <a href="{{ path('account_order') }}" style="color: #007bff">compte</a>
         </p>
     </div>
-    <div style="padding-top: 150px;"></div>
+    <div style="padding-top: 350px;"></div>
 {% endblock %}

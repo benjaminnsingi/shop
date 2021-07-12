@@ -3,7 +3,7 @@
 {% block title %}Ma commande - La Boutique Benshop{% endblock %}
 
 {% block content %}
-    <div class="container" style="padding-top: 120px;">
+    <div class="container" style="padding-top: 210px;">
         <h1>Ma commande {{ order.reference }}</h1>
         <a href="{{ path('account_order') }}" style="color: #007bff;">Retour</a>
         <hr><strong></strong>
@@ -48,5 +48,5 @@
         <strong>Livraison : </strong>{{ (order.carrierPrice/100)|number_format(2) }}<br/>
         <strong>Total :</strong>{{ ((order.carrierPrice + order.getTotal ) / 100)|number_format(2)}} €
     </div>
-    <div style="padding-top: 120px;"></div>
+    <div style="padding-top: 210px;"></div>
 {% endblock %}

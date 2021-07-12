@@ -4,7 +4,6 @@ namespace App\Entity;
 
 use App\Repository\CarrierRepository;
 use Doctrine\ORM\Mapping as ORM;
-use JetBrains\PhpStorm\Pure;
 
 /**
  * @ORM\Entity(repositoryClass=CarrierRepository::class)
@@ -33,7 +32,7 @@ class Carrier
      */
     private ?float $price = null;
 
-    #[Pure] public function __toString()
+    public function __toString()
     {
         return $this->getName(). '[br]' .$this->getDescription(). '[br]'.number_format(($this->getPrice() / 100 ), 2, ).' € ';
     }

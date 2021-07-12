@@ -4,7 +4,6 @@ namespace App\Entity;
 
 use App\Repository\OrderDetailsRepository;
 use Doctrine\ORM\Mapping as ORM;
-use JetBrains\PhpStorm\Pure;
 
 /**
  * @ORM\Entity(repositoryClass=OrderDetailsRepository::class)
@@ -48,7 +47,7 @@ class OrderDetails
         return $this->id;
     }
 
-    #[Pure] public function __toString()
+    public function __toString()
     {
         return $this->getProduct();
     }

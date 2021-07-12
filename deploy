@@ -1,2 +1,0 @@
-#!/bin/sh
-rsync -av ./ mi3vf_benshop@ben-shop.benjamin-nsingi.fr:~/benshop --include=public/build --include=public/bundles --include=public/images --include=public/uploads --exclude-from=.gitignore --exclude=".*"
